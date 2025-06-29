@@ -3,20 +3,18 @@
         "http://java.sun.com/dtd/web-app_2_3.dtd">
 
 <web-app>
-  <!-- Application Name -->
   <display-name>Hostel Outpass Application</display-name>
 
-  <!-- Servlet Definition -->
   <servlet>
     <servlet-name>submitRegisterServlet</servlet-name>
     <servlet-class>submitRegisterServlet</servlet-class>
   </servlet>
 
-  <!-- URL Mapping for Servlet -->
   <servlet-mapping>
     <servlet-name>submitRegisterServlet</servlet-name>
     <url-pattern>/submitRegisterServlet</url-pattern>
   </servlet-mapping>
+
   <servlet-mapping>
     <servlet-name>FilterExecutiveHistory</servlet-name>
     <url-pattern>/FilterExecutiveHistory</url-pattern>
@@ -26,7 +24,10 @@
     <servlet-name>FilterRcHistory</servlet-name>
     <url-pattern>/FilterRcHistory</url-pattern>
   </servlet-mapping>
-  
 
+  <!-- Welcome file for root URL -->
+  <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+  </welcome-file-list>
 
 </web-app>
