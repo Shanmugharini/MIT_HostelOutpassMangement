@@ -27,7 +27,7 @@
 
   <!-- Welcome file for root URL -->
   <welcome-file-list>
-    <welcome-file>https://mithosteloutpassmangement-production.up.railway.app/</welcome-file>
+    <welcome-file>mithosteloutpassmangement-production-80f1.up.railway.app/</welcome-file>
   </welcome-file-list>
 
 </web-app>
