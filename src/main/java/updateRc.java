@@ -1,3 +1,4 @@
+import com.example.dao.DBConnection;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -31,7 +32,7 @@ public class updateRc extends HttpServlet {
         try {
             // Set up database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            conn = DBConnection.getConnection();
 
             // SQL query to update student details
             String query = "UPDATE rc SET name = ?, email = ?, block = ? WHERE id = ?";
