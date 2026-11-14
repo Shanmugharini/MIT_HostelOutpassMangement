@@ -24,7 +24,7 @@ public class PassActionServlet extends HttpServlet {
             return;
         }
 
-        try (Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304")) {
+        try (Connection connection = DBConnection.getConnection()) {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             String query = "UPDATE outpass SET status = ? WHERE outpass_id = ?";
