@@ -19,7 +19,7 @@ public class RegisterStudentServlet extends HttpServlet {
         try {
             // 1. Setup database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            conn = DBConnection.getConnection();
 
             // 2. Check if the email already exists in the student table
             String checkQuery = "SELECT email FROM studentS WHERE email = ?";
