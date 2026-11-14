@@ -7,10 +7,6 @@ import java.sql.*;
 @WebServlet("/submitOutpass")
 public class OutpassFormServlet extends HttpServlet {
 
-    private static final String DB_URL = "jdbc:mysql://localhost:3305/hostel"; // Update with your DB details
-    private static final String DB_USER = "root"; // Replace with your DB username
-    private static final String DB_PASSWORD = "hARINI@2304"; // Replace with your DB password
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
