@@ -1,3 +1,4 @@
+import com.example.dao.DBConnection;
 import java.io.*;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -17,11 +18,6 @@ public class submitRegisterServlet extends HttpServlet {
         String hostel = request.getParameter("hostel");
         String roomNo = request.getParameter("roomNo");
 
-        // Database connection details
-        String dbURL = "jdbc:mysql://localhost:3305/hostel";  // Replace with your database details
-        String dbUsername = "root";  // Replace with your DB username
-        String dbPassword = "hARINI@2304";  // Replace with your DB password
-
         Connection conn = null;
         PreparedStatement stmt = null;
 
@@ -30,7 +26,7 @@ public class submitRegisterServlet extends HttpServlet {
         try {
             // Establish the database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection(dbURL, dbUsername, dbPassword);
+            conn = DBConnection.getConnection();
 
             // Prepare the SQL statement to insert student data
             String sql = "INSERT INTO studentS (roll_number, name, department, email, phone, hostel, room_number) VALUES (?, ?, ?, ?, ?, ?, ?)";
