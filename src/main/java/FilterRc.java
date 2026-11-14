@@ -21,7 +21,7 @@ public class FilterRc extends HttpServlet {
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            Connection connection = DBConnection.getConnection();
 
             // SQL Query
             String query = "SELECT * FROM rc " +
