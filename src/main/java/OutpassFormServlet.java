@@ -37,7 +37,7 @@ public class OutpassFormServlet extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Establish connection to the database
-            connection = DriverManager.getConnection(DB_URL, DB_USER, DB_PASSWORD);
+            connection = DBConnection.getConnection();
 
             // SQL Query to insert data into the outpass table
             String sql = "INSERT INTO outpass (name, regno, dept, block, room_no, place, number_of_days, "
