@@ -3,13 +3,22 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public class DBConnection {
-    private static final String URL = "jdbc:mysql://localhost:3305/hostel";
-    private static final String USER = "root";
-    private static final String PASSWORD = "hARINI@2304";
+    private DBConnection() {
+    }
 
-    public static Connection getConnection() throws SQLException, ClassNotFoundException {
-        Class.forName("com.mysql.cj.jdbc.Driver");
+    public static Connection getConnection() throws SQLException {
+        String url = System.getenv("DB_URL");
+        String user = System.getenv("DB_USER");
+        String password = System.getenv("DB_PASSWORD");
 
-        return DriverManager.getConnection(URL, USER, PASSWORD);
+        if (url == null || url.isBlank()
+                || user == null || user.isBlank()
+                || password == null || password.isBlank()) {
+            throw new IllegalStateException(
+                    "Database configuration is missing. Set DB_URL, DB_USER, and DB_PASSWORD."
+            );
+        }
+
+        return DriverManager.getConnection(url, user, password);
     }
 }
