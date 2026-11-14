@@ -23,7 +23,7 @@ public class HistoryRcServlet extends HttpServlet {
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            Connection connection = DBConnection.getConnection();
 
             // Fetch pass history
             String query = "SELECT * FROM outpass WHERE block = ?  ORDER BY out_date DESC";
