@@ -10,7 +10,7 @@ public class OutpassDAO {
             stmt.setString(1, outpassId);
             int rowsAffected = stmt.executeUpdate();
             return rowsAffected > 0;
-        } catch (SQLException | ClassNotFoundException e) {
+        } catch (SQLException e) {
             e.printStackTrace();
         }
         return false;
