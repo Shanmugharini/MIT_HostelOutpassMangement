@@ -32,10 +32,7 @@ public class SubmitForm extends HttpServlet {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             // Establish a connection to the database
-            String dbURL = "jdbc:mysql://localhost:3305/hostel";
-            String dbUser = "root";
-            String dbPassword = "hARINI@2304";
-            connection = DriverManager.getConnection(dbURL, dbUser, dbPassword);
+            connection = DBConnection.getConnection();
 
             // SQL query to insert data
             String sql = "INSERT INTO RC (name, email, block) VALUES (?, ?, ?)";
