@@ -1,5 +1,6 @@
 
 
+import com.example.dao.DBConnection;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,16 +14,6 @@ import java.sql.SQLException;
 @WebServlet("/deleteOutpass")
 public class DeleteOutpassServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
-
-    // Database connection details (can be moved to a separate DBConnection class)
-    private static final String URL = "jdbc:mysql://localhost:3305/hostel";
-    private static final String USER = "root";
-    private static final String PASSWORD = "hARINI@2304";
-
-    // Method to get the database connection
-    private Connection getConnection() throws SQLException {
-        return java.sql.DriverManager.getConnection(URL, USER, PASSWORD);
-    }
 
     // Method to delete the outpass from the database
     private boolean deleteOutpass(String outpassId) {
