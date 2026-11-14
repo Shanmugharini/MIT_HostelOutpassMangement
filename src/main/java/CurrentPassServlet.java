@@ -74,10 +74,6 @@ public class CurrentPassServlet extends HttpServlet {
             e.printStackTrace(); // Log the error
             request.setAttribute("errorMessage", "An error occurred while fetching pass history: " + e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            request.setAttribute("errorMessage", "Driver class not found. Please check your JDBC driver setup.");
-            request.getRequestDispatcher("error.jsp").forward(request, response);
         }
 
     }
