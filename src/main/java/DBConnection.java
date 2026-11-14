@@ -1,3 +1,5 @@
+package com.example.dao;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
@@ -17,6 +19,12 @@ public class DBConnection {
             throw new IllegalStateException(
                     "Database configuration is missing. Set DB_URL, DB_USER, and DB_PASSWORD."
             );
+        }
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            throw new SQLException("MySQL JDBC driver is unavailable.", e);
         }
 
         return DriverManager.getConnection(url, user, password);
