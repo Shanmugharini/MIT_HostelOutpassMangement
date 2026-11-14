@@ -18,8 +18,7 @@ public class DeleteStudentServlet extends HttpServlet {
 
         try {
             // Database connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            connection = DBConnection.getConnection();
 
             // Delete query
             String query = "DELETE FROM students WHERE roll_number = ?";
