@@ -17,15 +17,12 @@ public class UpdateReasonServlet extends HttpServlet {
         String reason = request.getParameter("reason");
 
         // Database connection variables
-        String jdbcURL = "jdbc:mysql://localhost:3305/hostel";
-        String dbUser = "root";
-        String dbPassword = "hARINI@2304";
-
+        
         // SQL query to update the reason
         String updateQuery = "UPDATE outpass SET reject_reason = ? WHERE regno = ?";
 
         String targetPage;
-        try (Connection connection = DriverManager.getConnection(jdbcURL, dbUser, dbPassword);
+        try (Connection connection = DBConnection.getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(updateQuery)) {
 
             // Set query parameters
