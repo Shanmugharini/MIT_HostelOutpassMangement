@@ -18,7 +18,7 @@ public class DeleteOutpassServlet extends HttpServlet {
     // Method to delete the outpass from the database
     private boolean deleteOutpass(String outpassId) {
         String query = "DELETE FROM outpass WHERE id = ?";
-        try (Connection conn = getConnection();
+        try (Connection conn = DBConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(query)) {
             stmt.setString(1, outpassId);
             int rowsAffected = stmt.executeUpdate();
