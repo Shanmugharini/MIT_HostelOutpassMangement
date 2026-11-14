@@ -1,3 +1,4 @@
+import com.example.dao.DBConnection;
 import com.example.model.Student;
 
 import java.io.IOException;
@@ -22,7 +23,7 @@ public class viewStudentServlet extends HttpServlet {
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            connection = DBConnection.getConnection();
 
             // Fetch student details
             String query = "SELECT roll_number, name, department, email, phone, hostel, room_number FROM students";
