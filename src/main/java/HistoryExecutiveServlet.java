@@ -1,3 +1,4 @@
+import com.example.dao.DBConnection;
 import com.example.model.Outpass;
 
 import java.io.IOException;
