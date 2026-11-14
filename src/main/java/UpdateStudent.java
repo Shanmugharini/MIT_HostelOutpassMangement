@@ -28,7 +28,7 @@ public class UpdateStudent extends HttpServlet {
         try {
             // Set up database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            conn = DBConnection.getConnection();
 
             // SQL query to update student details
             String query = "UPDATE students SET name = ?, department = ?, email = ?, phone = ?, hostel = ?, room_number = ? WHERE roll_number = ?";
