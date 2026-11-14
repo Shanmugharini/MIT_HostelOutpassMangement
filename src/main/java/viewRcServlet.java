@@ -1,3 +1,4 @@
+import com.example.dao.DBConnection;
 import com.example.model.Rc;
 
 import java.io.IOException;
@@ -21,7 +22,7 @@ public class viewRcServlet extends HttpServlet {
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            connection = DBConnection.getConnection();
 
             // Fetch student details
             String query = "SELECT id, name, block, email FROM rc";
