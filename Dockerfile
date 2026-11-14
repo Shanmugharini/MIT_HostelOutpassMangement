@@ -17,7 +17,7 @@ FROM tomcat:9.0-jdk17
 RUN rm -rf /usr/local/tomcat/webapps/*
 
 # Copy the built WAR from build stage and rename to ROOT.war
-COPY --from=build /app/target/MIT_HostelOutpassMangement.war/usr/local/tomcat/webapps/ROOT.war
+COPY --from=build /app/target/MIT_HostelOutpassMangement.war /usr/local/tomcat/webapps/ROOT.war
 
 # Expose port 8080
 EXPOSE 8080
