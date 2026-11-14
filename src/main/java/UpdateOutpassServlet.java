@@ -41,7 +41,7 @@ public class UpdateOutpassServlet extends HttpServlet {
         try {
             // Set up database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            conn = DBConnection.getConnection();
 
             // Update query
             String query = "UPDATE outpass SET regno = ?, dept = ?, block = ?, room_no = ?, place = ?, " +
