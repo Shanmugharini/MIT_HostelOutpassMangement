@@ -1,56 +1,92 @@
 # MIT Hostel Outpass Management
 
-A web-based application concept for managing hostel outpass requests in a more organized and convenient way. It is intended to help hostel residents submit outpass details and allow the responsible hostel authorities to review and manage those requests.
+A web-based application that simplifies hostel outpass administration by bringing student requests, approval workflows, and pass history into one place.
 
-## Overview
-
-The **MIT Hostel Outpass Management** project aims to digitize the hostel outpass process and reduce the need for manual, paper-based request handling. By keeping request information in one place, the system can make the process easier to track for both students and hostel administration.
-
-## Key Functions
-
-- Submit hostel outpass requests with the required details.
-- Review submitted requests.
-- Manage request approval or rejection.
-- Track the status of an outpass request.
-- Keep outpass information organized for reference.
-
-> The exact features and available user roles depend on the current implementation in this repository.
-
-## Typical Workflow
-
-1. A student enters the required outpass information.
-2. The request is submitted for review.
-3. The authorized hostel staff member reviews the request.
-4. The request status is updated based on the decision.
-5. The student can check the latest status.
-
-## Project Structure
-
-Explore the repository folders and source files to understand the application modules and implementation.
-
-## Getting Started
-
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/Shanmugharini/MIT_HostelOutpassMangement.git
-   ```
-2. Open the project in your preferred development environment.
-3. Refer to the source files and configuration files for the required dependencies and instructions to run the application.
-
-## Future Enhancements
-
-- Notifications when an outpass request is updated.
-- Request history and filtering.
-- Improved dashboard views for students and hostel administrators.
-
-## Contributing
-
-Suggestions and improvements are welcome. You can fork the repository, create a feature branch, and submit a pull request.
-
-## Author
-
-**Shanmugaharini**
+<p align="center">
+  <a href="https://drive.google.com/file/d/1Bgd68GsP4iVaW8mNXLhFrWTp6QwEprJH/view?usp=sharing"><strong>▶ Watch the Project Demo</strong></a>
+  &nbsp; · &nbsp;
+  <a href="https://github.com/Shanmugharini/MIT_HostelOutpassMangement/blob/master/project_demo_video.mp4">View demo video in this repository</a>
+</p>
 
 ---
 
-If you find this project useful, consider giving the repository a star.
+## The Problem
+
+Hostel outpass requests can become difficult to manage when submitted and tracked manually. Students may have limited visibility into request decisions, while hostel staff need a clear way to review requests and maintain pass records.
+
+**This project digitizes that process** with role-based access for students, Resident Coordinators (RCs), and hostel executives.
+
+## What You Can Do
+
+| User role | Main capabilities |
+|---|---|
+| **Student** | Register and log in, submit an outpass request, view current and rejected passes, edit request details, and check pass history. |
+| **Resident Coordinator (RC)** | Log in, review assigned requests, take action on requests, and view pass history. |
+| **Hostel Executive** | Manage student and RC records, view registered users, and access pass history. |
+
+## How It Works
+
+```mermaid
+flowchart TD
+    S[Student] -->|Submit outpass request| P[Web Application]
+    P --> R[Resident Coordinator]
+    R -->|Review and take action| P
+    P -->|Update request status| S
+    E[Hostel Executive] -->|Manage student and RC records| P
+    P <--> D[(MySQL Database)]
+```
+
+### Application Architecture
+
+```mermaid
+flowchart LR
+    U[User: Student / RC / Executive] --> V[JSP Pages]
+    V --> C[Java Servlets]
+    C --> B[Application Logic]
+    B --> DAO[Data Access Layer]
+    DAO <--> DB[(MySQL)]
+```
+
+## Technology Stack
+
+- **Frontend:** JSP, HTML, CSS
+- **Backend:** Java Servlets (Java 17)
+- **Database:** MySQL
+- **Database connectivity:** JDBC
+- **Build:** Maven
+- **Application server:** Apache Tomcat 9
+
+## Run Locally
+
+**Prerequisites:** JDK 17, Maven, MySQL, and Apache Tomcat 9.
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Shanmugharini/MIT_HostelOutpassMangement.git
+   cd MIT_HostelOutpassMangement
+   ```
+2. Create and configure the MySQL database.
+3. Set the `DB_URL`, `DB_USER`, and `DB_PASSWORD` environment variables. Follow **[DATABASE_SETUP.md](DATABASE_SETUP.md)** for configuration instructions.
+4. Build the application:
+   ```bash
+   mvn clean package
+   ```
+5. Deploy the generated WAR from `target/MIT_HostelOutpassMangement.war` to Tomcat 9 and start the server.
+6. Open the application in your browser at `http://localhost:8080/` (if deployed as the ROOT application).
+
+> Keep database credentials in environment variables. Do not commit real passwords or populated environment files.
+
+## Project Structure
+
+```text
+├── src/main/java/       # Servlets, models, and DAO
+├── src/main/webapp/     # JSP pages, CSS, and images
+├── WEB-INF/             # Web application configuration
+├── DATABASE_SETUP.md   # Database configuration guide
+├── pom.xml              # Maven dependencies and build settings
+└── Dockerfile           # Container build and deployment
+```
+
+---
+
+**Explore the code:** [Repository](https://github.com/Shanmugharini/MIT_HostelOutpassMangement) · **See it in action:** [Project demo](https://drive.google.com/file/d/1Bgd68GsP4iVaW8mNXLhFrWTp6QwEprJH/view?usp=sharing)
