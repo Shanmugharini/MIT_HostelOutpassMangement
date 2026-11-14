@@ -30,7 +30,7 @@ public class rcLoginServlet extends HttpServlet {
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            conn = DBConnection.getConnection();
 
             // Query to check if the email exists
             String query = "SELECT * FROM rc WHERE email = ?";
