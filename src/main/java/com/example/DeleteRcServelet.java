@@ -1,5 +1,7 @@
 package com.example;
 
+import com.example.dao.DBConnection;
+
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,7 +32,7 @@ public class DeleteRcServelet extends HttpServlet {
         try {
             // Database connection
             Class.forName("com.mysql.cj.jdbc.Driver");
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3305/hostel", "root", "hARINI@2304");
+            connection = DBConnection.getConnection();
 
             // Delete query
             String deleteQuery = "DELETE FROM rc WHERE id = ?";
